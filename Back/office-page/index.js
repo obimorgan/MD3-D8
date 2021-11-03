@@ -1,3 +1,5 @@
+
+
 let product1 = {
   "name": "app test 1",  //REQUIRED
   "description": "somthing longer", //REQUIRED
@@ -10,10 +12,11 @@ let product1 = {
   "__v": 0 //SERVER GENERATED
 }
 
+
 const postData = function () {
     fetch("https://striveschool-api.herokuapp.com/api/product", {
         method: "POST",
-        body: JSON.stringify(product1),
+        body: JSON.stringify(product1,),
         headers: {
             "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhjYmFhY2FhMjAwMTU1MmExNjAiLCJpYXQiOjE2MzU5NDQ2NTEsImV4cCI6MTYzNzE1NDI1MX0.Yx0HpjxBSTDpOzS9KLvXiaWGib-fUvlk1UeiaQ_zQxg",
             "Content-type": "application/json; charset=UTF-8"
@@ -26,3 +29,4 @@ const postData = function () {
 window.onload = () => {
     postData()
 }
+
