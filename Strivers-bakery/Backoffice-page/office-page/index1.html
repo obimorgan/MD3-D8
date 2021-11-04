@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <title>BackOffice</title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -15,10 +16,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link " href="Strivers-bakery/Front-page/index.html">Home <span class="sr-only">(current)</span></a>
             <a class="nav-link" href="#">Features</a>
-            <a class="nav-link" href="#">Pricing</a>
-            <a class="nav-link disabled">Disabled</a>
+            <a class="nav-link active" href="">Back Office</a>
           </div>
         </div>
     </nav>
@@ -32,31 +32,25 @@
                     <form>
                       <div class="form-group">
                         <label for="exampleFormControlInput1">Product Name</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <input type="text" class="name form-control" id="exampleFormControlInput1" placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Brand</label>
+                        <input type="text" class="brand form-control" id="exampleFormControlInput1" placeholder="">
                       </div>
                       <div class="form-group">
                         <label for="exampleFormControlTextarea1">Product Discription</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="description form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleFormControlInput1">Price</label>
-                        <input type="price" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <input type="number" class="price form-control" id="exampleFormControlInput1" placeholder="">
                       </div>
                       <div class="form-group">
-                        <label for="exampleFormControlInput1">Time</label>
-                        <input type="time" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <label for="exampleFormControlSelect1">URl</label>
+                        <input type="url" class="url form-control" id="exampleFormControlInput1" placeholder="">
                       </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">Amount</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                      <button class="btn btn-primary" type="submit">Submit Product</button>
+                      <button class="btn btn-primary" type="submit">Add</button>
                     </form>
                 </div>
     
