@@ -63,16 +63,13 @@
                 console.log(name)
                 container.innerHTML= 
                 `
-                <div class="font-weight-bolder">Product Details
+                <div class="font-weight-bolder">
+                    <br>
                     <p>${name}</p>
-                    <p>${description}</p>
-                    <p>${price}</p>
-                    <p>${description}</p>
-                    <ul class="list-group list-group-flush" >
-                        <li class="list-group-item pl-2"> ${_id}</li>
-                        <li class="list-group-item pl-2"> ${createdAt}</li>
-                        <li class="list-group-item pl-2"> ${updatedAt}</li>
-                    </ul>
+                    <p>Product Description:${description}</p>
+                    <p>Price: $ ${price}</p>
+                    <p>Product Id: ${_id}</p>
+                    <p>Created At: ${createdAt}</p>
                 </div>
                 `
 
