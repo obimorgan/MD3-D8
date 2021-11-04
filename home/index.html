@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title>Front</title>
+</head>
+<style>
+  body {background: rgb(39, 31, 27);
+  }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/review/index.html">Review</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/office-page/index.html">Back Office</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="container-fluid">
+          <div class="jumbotron jumbotron-fluid mx-n3" style="background-image: url(https://images.unsplash.com/photo-1541781550486-81b7a2328578?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80)">
+            <div class="container d-flex"></div>
+              <h1 class="ml-4 display-4 text-white">Strivers Bakery</h1>
+              <p class="ml-4 lead text-white">We love Swedish fika!</p>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="product-container d-flex">
+              <!-- Cards go here -->
+            
+            </div>
+           
+          </div>
+        </div>
+    </div>
+    <script>
+    const productContainer = document.querySelector('.product-container')
+const productCard = document.querySelector('.card')
+let displayProduct = ''
+
+const renderDisplayProduct = (products) => {
+    products.forEach (product => {
+        displayProduct += 
+        `
+        <div class="card col-xs-6 col-md-3 mx-1 my-1" style="height: 520px">
+            <div class="card-body pb-n2 mx-n4 mt-n4 d-flex flex-column" id="${product._id}">
+                <img src="${product.imageUrl}" class="img-fluid my-3" alt="...">
+                <div class="d-flex justify-content-between align-item-center border-bottom"> 
+                    <p class="card-title"><strong>${product.name}</strong></p>
+                    <p class="card-text">Kr ${product.price}</p>
+                </div>
+                <div class="form-group mt-auto">
+                    <label for="exampleFormControlTextarea1">Product Discription</label>
+                    <textarea class="description form-control" id="exampleFormControlTextarea1" rows="3">${product.description}</textarea>
+                    <a href="/review/index.html?eventId=${product._id}"><button type="link" class="btn btn-outline-dark mt-1">Review</button></a>
+                </div>
+            </div>
+        </div>
+        `
+        })
+        productContainer.innerHTML = displayProduct
+}
+
+const fetchData = async () => {
+    try {
+        const response = await fetch("https://striveschool-api.herokuapp.com/api/product", {
+            method: "GET",
+            headers: {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhjYmFhY2FhMjAwMTU1MmExNjAiLCJpYXQiOjE2MzU5NDQ2NTEsImV4cCI6MTYzNzE1NDI1MX0.Yx0HpjxBSTDpOzS9KLvXiaWGib-fUvlk1UeiaQ_zQxg"
+            }
+        })
+        
+        if (response.ok) {
+            const products = await response.json()
+            console.log(products)
+            renderDisplayProduct(products)
+        } else {
+            throw Error("Products are not fetched!")
+        }
+    } catch (err) {
+        throw err
+      }
+}
+
+
+window.onload  = async () => {
+    fetchData()
+} 
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" 
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
+</script>
+</body>
+</html>

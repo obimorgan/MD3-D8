@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title>Review</title>
+</head>
+<style>
+    body {background: rgb(39, 31, 27);
+    }
+  </style>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item ">
+                  <a class="nav-link" href="/home/index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/review/index.html">Review</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/office-page/index.html">Back Office</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+        <img src="https://images.unsplash.com/photo-1581447109200-bf2769116351?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" 
+        alt="" class="img-fluid " style="width: 350vh; height: 40vh; object-fit: cover; position: relative;">
+    </div>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-8 d-flex flex-column text-white">
+                <h1 class="mt-n5 pb-5 monospace" style="position: absolute; line-height: 2;">Review Product</h1>
+                <div id="event-details">
+                    
+                </div>
+        </div>
+    </div>
+    <script>
+        const eventId = new URLSearchParams(window.location.search).get("eventId")
+        console.log(eventId)
+
+        window.onload = async () => {
+            try {
+                const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${eventID}`, {
+                    methods:"GET",
+                    headers: {
+                             "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhjYmFhY2FhMjAwMTU1MmExNjAiLCJpYXQiOjE2MzU5NDQ2NTEsImV4cCI6MTYzNzE1NDI1MX0.Yx0HpjxBSTDpOzS9KLvXiaWGib-fUvlk1UeiaQ_zQxg"
+                    }
+                })
+                const eventData = await response.json()
+                const { name, description, price, time, _id, createdAt, updatedAt } = eventData
+                comsole.log(eventData)
+                const container = document.getElementById("event-details")
+                container.innerHTML = 
+                `
+                <h6 class="font-weight-bolder">Product Details</h6>
+                    <p>${name}</p>
+                    <p>${description}</p>
+                    p>${price}</p>
+                    <h6>${description}</h6>
+                    <ul class="list-group list-group-flush" >
+                        <li class="list-group-item pl-2"> ${_id}</li>
+                        <li class="list-group-item pl-2"> ${createdAt}</li>
+                        <li class="list-group-item pl-2"> ${pdatedAt}</li>
+                    </ul>
+                
+                `
+
+            } catch (err){
+
+            }
+        }
+    </script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+</html>
