@@ -61,24 +61,26 @@
                 const container = document.getElementById("event-details")
                 console.log(container)
                 console.log(name)
-                container.innerText= 
+                container.innerHTML= 
                 `
                 <div class="font-weight-bolder">Product Details
                     <p>${name}</p>
                     <p>${description}</p>
-                    p>${price}</p>
-                    <h6>${description}</h6>
+                    <p>${price}</p>
+                    <p>${description}</p>
                     <ul class="list-group list-group-flush" >
                         <li class="list-group-item pl-2"> ${_id}</li>
                         <li class="list-group-item pl-2"> ${createdAt}</li>
-                        <li class="list-group-item pl-2"> ${pdatedAt}</li>
+                        <li class="list-group-item pl-2"> ${updatedAt}</li>
                     </ul>
                 </div>
                 `
 
             } catch (err){
-
+                 console.log(err)
             }
+
+            
         }
     </script>
 
