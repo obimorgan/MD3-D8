@@ -101,41 +101,7 @@ const postData = function (productInput) {
     .then(console.log)
     .catch(err => console.log(err))
 }
-///Delete and Edit btn
-// productContainer.addEventListener('click', function (e) {
-//     e.preventDefault()
-//     // console.log(e.target.id)
-//     let deleteBtn = e.target.id === 'delete-product'
-//     let editBtn = e.target.id == 'edit-product'  ///Assigning id to the btns when pressed
-   
-//     console.log(e.target.parentElement.parentElement.parentElement.id)
 
-//     let id = e.target.parentElement.parentElement.parentElement.id
-//     if(deleteBtn) {
-//         console.log("Remove product")
-//     }
-
-//     if(deleteBtn) {
-//         fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
-//             method: "DELETE",
-//             headers: {
-//                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhjYmFhY2FhMjAwMTU1MmExNjAiLCJpYXQiOjE2MzU5NDQ2NTEsImV4cCI6MTYzNzE1NDI1MX0.Yx0HpjxBSTDpOzS9KLvXiaWGib-fUvlk1UeiaQ_zQxg"
-//             }
-//         })
-//         .then(response => response.json())
-//         .then(() => location.reload()) ///Note to self: Look this up!! ---> suppose to reload the browser when deleting is completed
-//     }
-//     if(editBtn) {
-//       const parent = e.target.parentElement.parentElement.parentElement
-//       let contentTitle = parent.querySelector('.card-title').textContent
-//       let descriptionContent = parent.querySelector('.description').textContent
-//       console.log(contentTitle, descriptionContent)
-
-      
-
-
-//     }
-// })
 
 
     </script>
